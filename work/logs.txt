@@ -1,0 +1,2156 @@
+[compete] Engine: /mnt/ro/voccontent2/studentlib/eee_S_5590118/asn5128574_2/asn5128575_1/asnlib.0/public/engine
+[compete] WHITE (dir1): built-in minimax (/mnt/ro/voccontent2/studentlib/eee_S_5590118/asn5128574_2/asn5128575_1/asnlib.0/public/minimax)
+[compete] BLACK (dir2): Python script /mnt/vocwork2/work/eee_W_5650074/asn5128574_2/asn5128575_1/work/me/homework.py
+
+============================================================
+  Game start — 30.0s per side, max 1000 moves
+============================================================
+
+  Board after move 0 (initial):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  b b b b b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  . . . . . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  B B B B B B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+30.0 30.0
+gytsnxpnstyg
+bbbbbbbbbbbb
+............
+............
+............
+............
+............
+............
+............
+............
+BBBBBBBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 1: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 30.0s)
+  Agent finished in 0.0s CPU, 0.00413233299877902s wall
+  Move: a2 a4
+
+  Board after move 1 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  b b b b b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  . . . . . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . B B B B B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+30.0 30.0
+gytsnxpnstyg
+bbbbbbbbbbbb
+............
+............
+............
+............
+............
+............
+B...........
+............
+.BBBBBBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 2: BLACK (me) (CPU time left: 30.0s)
+  Agent finished in 0.8119999999999999s CPU, 0.8423689990013372s wall
+  Move: a11 a9
+
+  Board after move 2 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . b b b b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b . . . . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . B B B B B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+30.0 29.188
+gytsnxpnstyg
+.bbbbbbbbbbb
+............
+b...........
+............
+............
+............
+............
+B...........
+............
+.BBBBBBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 3: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 30.0s)
+  Agent finished in 0.0040000000000000036s CPU, 0.004548597999018966s wall
+  Move: b2 b4
+
+  Board after move 3 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . b b b b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b . . . . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . B B B B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+29.188 29.996
+gytsnxpnstyg
+.bbbbbbbbbbb
+............
+b...........
+............
+............
+............
+............
+BB..........
+............
+..BBBBBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 4: BLACK (me) (CPU time left: 29.188s)
+  Agent finished in 0.7840000000000001s CPU, 0.8130762490000052s wall
+  Move: b11 b9
+
+  Board after move 4 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . b b b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b . . . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . B B B B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.996 28.404
+gytsnxpnstyg
+..bbbbbbbbbb
+............
+bb..........
+............
+............
+............
+............
+BB..........
+............
+..BBBBBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 5: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.996s)
+  Agent finished in 0.0040000000000000036s CPU, 0.0045807650003553135s wall
+  Move: c2 c4
+
+  Board after move 5 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . b b b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b . . . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . B B B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+28.404 29.991999999999997
+gytsnxpnstyg
+..bbbbbbbbbb
+............
+bb..........
+............
+............
+............
+............
+BBB.........
+............
+...BBBBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 6: BLACK (me) (CPU time left: 28.404s)
+  Agent finished in 0.7599999999999998s CPU, 0.7939921380002488s wall
+  Move: c11 c9
+
+  Board after move 6 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . b b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b . . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . B B B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.991999999999997 27.644
+gytsnxpnstyg
+...bbbbbbbbb
+............
+bbb.........
+............
+............
+............
+............
+BBB.........
+............
+...BBBBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 7: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.991999999999997s)
+  Agent finished in 0.0040000000000000036s CPU, 0.004703119999248884s wall
+  Move: d2 d4
+
+  Board after move 7 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . b b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b . . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B B . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . B B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+27.644 29.987999999999996
+gytsnxpnstyg
+...bbbbbbbbb
+............
+bbb.........
+............
+............
+............
+............
+BBBB........
+............
+....BBBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 8: BLACK (me) (CPU time left: 27.644s)
+  Agent finished in 0.7480000000000002s CPU, 0.7741338569994696s wall
+  Move: d11 d9
+
+  Board after move 8 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B B . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . B B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.987999999999996 26.895999999999997
+gytsnxpnstyg
+....bbbbbbbb
+............
+bbbb........
+............
+............
+............
+............
+BBBB........
+............
+....BBBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 9: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.987999999999996s)
+  Agent finished in 0.0040000000000000036s CPU, 0.004986890000509447s wall
+  Move: e2 e4
+
+  Board after move 9 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . b b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B B B . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+26.895999999999997 29.983999999999995
+gytsnxpnstyg
+....bbbbbbbb
+............
+bbbb........
+............
+............
+............
+............
+BBBBB.......
+............
+.....BBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 10: BLACK (me) (CPU time left: 26.895999999999997s)
+  Agent finished in 0.7319999999999998s CPU, 0.757995091000339s wall
+  Move: e11 e9
+
+  Board after move 10 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b b . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B B B . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . B B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.983999999999995 26.163999999999998
+gytsnxpnstyg
+.....bbbbbbb
+............
+bbbbb.......
+............
+............
+............
+............
+BBBBB.......
+............
+.....BBBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 11: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.983999999999995s)
+  Agent finished in 0.0040000000000000036s CPU, 0.005563136001001112s wall
+  Move: f2 f4
+
+  Board after move 11 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . b b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b b . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B B B B . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+26.163999999999998 29.979999999999993
+gytsnxpnstyg
+.....bbbbbbb
+............
+bbbbb.......
+............
+............
+............
+............
+BBBBBB......
+............
+......BBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 12: BLACK (me) (CPU time left: 26.163999999999998s)
+  Agent finished in 0.7080000000000002s CPU, 0.734936953000215s wall
+  Move: f11 f9
+
+  Board after move 12 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b b b . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B B B B . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . B B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.979999999999993 25.455999999999996
+gytsnxpnstyg
+......bbbbbb
+............
+bbbbbb......
+............
+............
+............
+............
+BBBBBB......
+............
+......BBBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 13: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.979999999999993s)
+  Agent finished in 0.0039999999999995595s CPU, 0.006118707000496215s wall
+  Move: g2 g4
+
+  Board after move 13 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b b b . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B B B B B . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+25.455999999999996 29.975999999999992
+gytsnxpnstyg
+......bbbbbb
+............
+bbbbbb......
+............
+............
+............
+............
+BBBBBBB.....
+............
+.......BBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 14: BLACK (me) (CPU time left: 25.455999999999996s)
+  Agent finished in 0.6960000000000006s CPU, 0.7235173939989181s wall
+  Move: f9 f7
+
+  Board after move 14 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b b . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . b . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B B B B B . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . B B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.975999999999992 24.759999999999994
+gytsnxpnstyg
+......bbbbbb
+............
+bbbbb.......
+............
+.....b......
+............
+............
+BBBBBBB.....
+............
+.......BBBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 15: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.975999999999992s)
+  Agent finished in 0.0039999999999995595s CPU, 0.006644205999691621s wall
+  Move: h2 h4
+
+  Board after move 15 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b b . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . b . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . . . . . . . .
+   4  B B B B B B B B . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+24.759999999999994 29.971999999999994
+gytsnxpnstyg
+......bbbbbb
+............
+bbbbb.......
+............
+.....b......
+............
+............
+BBBBBBBB....
+............
+........BBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 16: BLACK (me) (CPU time left: 24.759999999999994s)
+  Agent finished in 0.6760000000000002s CPU, 0.7003787330013438s wall
+  Move: f7 f5
+
+  Board after move 16 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b b . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . b . . . . . .
+   4  B B B B B B B B . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.971999999999994 24.083999999999996
+gytsnxpnstyg
+......bbbbbb
+............
+bbbbb.......
+............
+............
+............
+.....b......
+BBBBBBBB....
+............
+........BBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 17: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.971999999999994s)
+  Agent finished in 0.004000000000000448s CPU, 0.006491017000371357s wall
+  Move: f4 f5
+
+  Board after move 17 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b b . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+24.083999999999996 29.967999999999993
+gytsnxpnstyg
+......bbbbbb
+............
+bbbbb.......
+............
+............
+............
+.....B......
+BBBBB.BB....
+............
+........BBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 18: BLACK (me) (CPU time left: 24.083999999999996s)
+  Agent finished in 0.6199999999999992s CPU, 0.6541240730002755s wall
+  Move: e9 e7
+
+  Board after move 18 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . B B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.967999999999993 23.464
+gytsnxpnstyg
+......bbbbbb
+............
+bbbb........
+............
+....b.......
+............
+.....B......
+BBBBB.BB....
+............
+........BBBB
+GYTSNXPNSTYG
+---------------------
+
+Move 19: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.967999999999993s)
+  Agent finished in 0.004000000000000448s CPU, 0.006492913000329281s wall
+  Move: j2 j4
+
+  Board after move 19 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . b b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B B . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+23.464 29.96399999999999
+gytsnxpnstyg
+......bbbbbb
+............
+bbbb........
+............
+....b.......
+............
+.....B......
+BBBBB.BBB...
+............
+.........BBB
+GYTSNXPNSTYG
+---------------------
+
+Move 20: BLACK (me) (CPU time left: 23.464s)
+  Agent finished in 0.6479999999999997s CPU, 0.6640220769986627s wall
+  Move: g11 g9
+
+  Board after move 20 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . . b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . b . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B B . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . B B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.96399999999999 22.816
+gytsnxpnstyg
+.......bbbbb
+............
+bbbb..b.....
+............
+....b.......
+............
+.....B......
+BBBBB.BBB...
+............
+.........BBB
+GYTSNXPNSTYG
+---------------------
+
+Move 21: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.96399999999999s)
+  Agent finished in 0.004000000000000448s CPU, 0.007240426999487681s wall
+  Move: k2 k4
+
+  Board after move 21 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . . b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . b . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . . . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B B B . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+22.816 29.95999999999999
+gytsnxpnstyg
+.......bbbbb
+............
+bbbb..b.....
+............
+....b.......
+............
+.....B......
+BBBBB.BBBB..
+............
+..........BB
+GYTSNXPNSTYG
+---------------------
+
+Move 22: BLACK (me) (CPU time left: 22.816s)
+  Agent finished in 0.6200000000000001s CPU, 0.6493398970014823s wall
+  Move: g9 g7
+
+  Board after move 22 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . . b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . b . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B B B . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . B B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.95999999999999 22.195999999999998
+gytsnxpnstyg
+.......bbbbb
+............
+bbbb........
+............
+....b.b.....
+............
+.....B......
+BBBBB.BBBB..
+............
+..........BB
+GYTSNXPNSTYG
+---------------------
+
+Move 23: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.95999999999999s)
+  Agent finished in 0.0039999999999995595s CPU, 0.007254935000673868s wall
+  Move: m2 m4
+
+  Board after move 23 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . . b b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . b . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B B B B .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+22.195999999999998 29.95599999999999
+gytsnxpnstyg
+.......bbbbb
+............
+bbbb........
+............
+....b.b.....
+............
+.....B......
+BBBBB.BBBBB.
+............
+...........B
+GYTSNXPNSTYG
+---------------------
+
+Move 24: BLACK (me) (CPU time left: 22.195999999999998s)
+  Agent finished in 0.6079999999999997s CPU, 0.6354658339987509s wall
+  Move: h11 h9
+
+  Board after move 24 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . b . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . b . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B B B B .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . B
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.95599999999999 21.587999999999997
+gytsnxpnstyg
+........bbbb
+............
+bbbb...b....
+............
+....b.b.....
+............
+.....B......
+BBBBB.BBBBB.
+............
+...........B
+GYTSNXPNSTYG
+---------------------
+
+Move 25: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.95599999999999s)
+  Agent finished in 0.004000000000001336s CPU, 0.0074973769987991545s wall
+  Move: n2 n4
+
+  Board after move 25 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . b . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . b . . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+21.587999999999997 29.951999999999988
+gytsnxpnstyg
+........bbbb
+............
+bbbb...b....
+............
+....b.b.....
+............
+.....B......
+BBBBB.BBBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 26: BLACK (me) (CPU time left: 21.587999999999997s)
+  Agent finished in 0.5919999999999987s CPU, 0.6243067960003827s wall
+  Move: h9 h7
+
+  Board after move 26 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . b b . . . .
+   6  . . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  B B B B B . B B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.951999999999988 20.996
+gytsnxpnstyg
+........bbbb
+............
+bbbb........
+............
+....b.bb....
+............
+.....B......
+BBBBB.BBBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 27: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.951999999999988s)
+  Agent finished in 0.0039999999999995595s CPU, 0.007860815001549781s wall
+  Move: a4 a6
+
+  Board after move 27 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y t s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . b b . . . .
+   6  B . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  . B B B B . B B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+20.996 29.947999999999986
+gytsnxpnstyg
+........bbbb
+............
+bbbb........
+............
+....b.bb....
+B...........
+.....B......
+.BBBB.BBBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 28: BLACK (me) (CPU time left: 20.996s)
+  Agent finished in 0.5440000000000005s CPU, 0.5661803370003327s wall
+  Move: c12 e10
+
+  Board after move 28 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . b b . . . .
+   6  B . . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  . B B B B . B B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.947999999999986 20.451999999999998
+gy.snxpnstyg
+........bbbb
+....t.......
+bbbb........
+............
+....b.bb....
+B...........
+.....B......
+.BBBB.BBBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 29: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.947999999999986s)
+  Agent finished in 0.0039999999999995595s CPU, 0.007788728000377887s wall
+  Move: b4 b6
+
+  Board after move 29 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . b . b b . . . .
+   6  B B . . . . . . . . . .
+   5  . . . . . B . . . . . .
+   4  . . B B B . B B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+20.451999999999998 29.94399999999999
+gy.snxpnstyg
+........bbbb
+....t.......
+bbbb........
+............
+....b.bb....
+BB..........
+.....B......
+..BBB.BBBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 30: BLACK (me) (CPU time left: 20.451999999999998s)
+  Agent finished in 0.5760000000000005s CPU, 0.5985939250003867s wall
+  Move: e7 e5
+
+  Board after move 30 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . b b . . . .
+   6  B B . . . . . . . . . .
+   5  . . . . b B . . . . . .
+   4  . . B B B . B B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.94399999999999 19.875999999999998
+gy.snxpnstyg
+........bbbb
+....t.......
+bbbb........
+............
+......bb....
+BB..........
+....bB......
+..BBB.BBBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 31: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.94399999999999s)
+  Agent finished in 0.0039999999999995595s CPU, 0.007436799000061001s wall
+  Move: e4 e5
+
+  Board after move 31 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . b b . . . .
+   6  B B . . . . . . . . . .
+   5  . . . . B B . . . . . .
+   4  . . B B . . B B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+19.875999999999998 29.93999999999999
+gy.snxpnstyg
+........bbbb
+....t.......
+bbbb........
+............
+......bb....
+BB..........
+....BB......
+..BB..BBBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 32: BLACK (me) (CPU time left: 19.875999999999998s)
+  Agent finished in 0.548s CPU, 0.5795262550000189s wall
+  Move: g7 g5
+
+  Board after move 32 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . b . . . .
+   6  B B . . . . . . . . . .
+   5  . . . . B B b . . . . .
+   4  . . B B . . B B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.93999999999999 19.327999999999996
+gy.snxpnstyg
+........bbbb
+....t.......
+bbbb........
+............
+.......b....
+BB..........
+....BBb.....
+..BB..BBBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 33: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.93999999999999s)
+  Agent finished in 0.004000000000001336s CPU, 0.007383123000181513s wall
+  Move: g4 g5
+
+  Board after move 33 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . b . . . .
+   6  B B . . . . . . . . . .
+   5  . . . . B B B . . . . .
+   4  . . B B . . . B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+19.327999999999996 29.93599999999999
+gy.snxpnstyg
+........bbbb
+....t.......
+bbbb........
+............
+.......b....
+BB..........
+....BBB.....
+..BB...BBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 34: BLACK (me) (CPU time left: 19.327999999999996s)
+  Agent finished in 0.5399999999999991s CPU, 0.5659771270002238s wall
+  Move: h7 h5
+
+  Board after move 34 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B . . . . . . . . . .
+   5  . . . . B B B b . . . .
+   4  . . B B . . . B B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.93599999999999 18.787999999999997
+gy.snxpnstyg
+........bbbb
+....t.......
+bbbb........
+............
+............
+BB..........
+....BBBb....
+..BB...BBBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 35: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.93599999999999s)
+  Agent finished in 0.0039999999999995595s CPU, 0.0072067349992721574s wall
+  Move: h4 h5
+
+  Board after move 35 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . b b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . . . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B . . . . . . . . . .
+   5  . . . . B B B B . . . .
+   4  . . B B . . . . B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+18.787999999999997 29.931999999999988
+gy.snxpnstyg
+........bbbb
+....t.......
+bbbb........
+............
+............
+BB..........
+....BBBB....
+..BB....BBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 36: BLACK (me) (CPU time left: 18.787999999999997s)
+  Agent finished in 0.5200000000000014s CPU, 0.550098073999834s wall
+  Move: j11 j9
+
+  Board after move 36 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . b . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B . . . . . . . . . .
+   5  . . . . B B B B . . . .
+   4  . . B B . . . . B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.931999999999988 18.267999999999994
+gy.snxpnstyg
+.........bbb
+....t.......
+bbbb....b...
+............
+............
+BB..........
+....BBBB....
+..BB....BBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 37: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.931999999999988s)
+  Agent finished in 0.0039999999999995595s CPU, 0.007208042999991449s wall
+  Move: c4 c6
+
+  Board after move 37 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . b b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . b . . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B . . . . . . . . .
+   5  . . . . B B B B . . . .
+   4  . . . B . . . . B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+18.267999999999994 29.92799999999999
+gy.snxpnstyg
+.........bbb
+....t.......
+bbbb....b...
+............
+............
+BBB.........
+....BBBB....
+...B....BBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 38: BLACK (me) (CPU time left: 18.267999999999994s)
+  Agent finished in 0.516s CPU, 0.5448173259992473s wall
+  Move: k11 k9
+
+  Board after move 38 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . b b . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B . . . . . . . . .
+   5  . . . . B B B B . . . .
+   4  . . . B . . . . B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.92799999999999 17.751999999999995
+gy.snxpnstyg
+..........bb
+....t.......
+bbbb....bb..
+............
+............
+BBB.........
+....BBBB....
+...B....BBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 39: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.92799999999999s)
+  Agent finished in 0.0039999999999995595s CPU, 0.007470839000234264s wall
+  Move: d4 d6
+
+  Board after move 39 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . b b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . b b . .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . . . . .
+   5  . . . . B B B B . . . .
+   4  . . . . . . . . B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+17.751999999999995 29.923999999999992
+gy.snxpnstyg
+..........bb
+....t.......
+bbbb....bb..
+............
+............
+BBBB........
+....BBBB....
+........BBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 40: BLACK (me) (CPU time left: 17.751999999999995s)
+  Agent finished in 0.5039999999999996s CPU, 0.5270065460008482s wall
+  Move: m11 m9
+
+  Board after move 40 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . b b b .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . . . . .
+   5  . . . . B B B B . . . .
+   4  . . . . . . . . B B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.923999999999992 17.247999999999998
+gy.snxpnstyg
+...........b
+....t.......
+bbbb....bbb.
+............
+............
+BBBB........
+....BBBB....
+........BBBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 41: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.923999999999992s)
+  Agent finished in 0.004000000000001336s CPU, 0.007624546000442933s wall
+  Move: j4 j6
+
+  Board after move 41 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . b
+  10  . . . . t . . . . . . .
+   9  b b b b . . . . b b b .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . B . . .
+   5  . . . . B B B B . . . .
+   4  . . . . . . . . . B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+17.247999999999998 29.91999999999999
+gy.snxpnstyg
+...........b
+....t.......
+bbbb....bbb.
+............
+............
+BBBB....B...
+....BBBB....
+.........BBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 42: BLACK (me) (CPU time left: 17.247999999999998s)
+  Agent finished in 0.484s CPU, 0.5159730590003164s wall
+  Move: e10 g8
+
+  Board after move 42 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b .
+   8  . . . . . . t . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . B . . .
+   5  . . . . B B B B . . . .
+   4  . . . . . . . . . B B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.91999999999999 16.763999999999996
+gy.snxpnstyg
+...........b
+............
+bbbb....bbb.
+......t.....
+............
+BBBB....B...
+....BBBB....
+.........BBB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 43: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.91999999999999s)
+  Agent finished in 0.0039999999999995595s CPU, 0.008293148999655386s wall
+  Move: k4 k6
+
+  Board after move 43 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b .
+   8  . . . . . . t . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . B B . .
+   5  . . . . B B B B . . . .
+   4  . . . . . . . . . . B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+16.763999999999996 29.91599999999999
+gy.snxpnstyg
+...........b
+............
+bbbb....bbb.
+......t.....
+............
+BBBB....BB..
+....BBBB....
+..........BB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 44: BLACK (me) (CPU time left: 16.763999999999996s)
+  Agent finished in 0.46799999999999997s CPU, 0.49894132199915475s wall
+  Move: g8 j6
+
+  Board after move 44 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . t B . .
+   5  . . . . B B B B . . . .
+   4  . . . . . . . . . . B B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.91599999999999 16.295999999999996
+gy.snxpnstyg
+...........b
+............
+bbbb....bbb.
+............
+............
+BBBB....tB..
+....BBBB....
+..........BB
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 45: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.91599999999999s)
+  Agent finished in 0.0039999999999995595s CPU, 0.009580509000443271s wall
+  Move: m4 m6
+
+  Board after move 45 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . t B B .
+   5  . . . . B B B B . . . .
+   4  . . . . . . . . . . . B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+16.295999999999996 29.911999999999992
+gy.snxpnstyg
+...........b
+............
+bbbb....bbb.
+............
+............
+BBBB....tBB.
+....BBBB....
+...........B
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 46: BLACK (me) (CPU time left: 16.295999999999996s)
+  Agent finished in 0.4640000000000004s CPU, 0.49136658200040984s wall
+  Move: j6 h5
+
+  Board after move 46 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . . B B .
+   5  . . . . B B B t . . . .
+   4  . . . . . . . . . . . B
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.911999999999992 15.831999999999995
+gy.snxpnstyg
+...........b
+............
+bbbb....bbb.
+............
+............
+BBBB.....BB.
+....BBBt....
+...........B
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 47: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.911999999999992s)
+  Agent finished in 0.0039999999999995595s CPU, 0.008124975000100676s wall
+  Move: n4 n6
+
+  Board after move 47 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . b
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b .
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . . B B B
+   5  . . . . B B B t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+15.831999999999995 29.907999999999994
+gy.snxpnstyg
+...........b
+............
+bbbb....bbb.
+............
+............
+BBBB.....BBB
+....BBBt....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 48: BLACK (me) (CPU time left: 15.831999999999995s)
+  Agent finished in 0.45199999999999996s CPU, 0.4767260669996176s wall
+  Move: n11 n9
+
+  Board after move 48 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . . . . . . . . .
+   6  B B B B . . . . . B B B
+   5  . . . . B B B t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.907999999999994 15.379999999999995
+gy.snxpnstyg
+............
+............
+bbbb....bbbb
+............
+............
+BBBB.....BBB
+....BBBt....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 49: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.907999999999994s)
+  Agent finished in 0.0039999999999995595s CPU, 0.008278069999505533s wall
+  Move: e5 e7
+
+  Board after move 49 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n x p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . B . . . . . . .
+   6  B B B B . . . . . B B B
+   5  . . . . . B B t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+15.379999999999995 29.903999999999996
+gy.snxpnstyg
+............
+............
+bbbb....bbbb
+............
+....B.......
+BBBB.....BBB
+.....BBt....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 50: BLACK (me) (CPU time left: 15.379999999999995s)
+  Agent finished in 0.4400000000000013s CPU, 0.46242940400043153s wall
+  Move: f12 f9
+
+  Board after move 50 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n . p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . x . . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . B . . . . . . .
+   6  B B B B . . . . . B B B
+   5  . . . . . B B t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.903999999999996 14.939999999999994
+gy.sn.pnstyg
+............
+............
+bbbb.x..bbbb
+............
+....B.......
+BBBB.....BBB
+.....BBt....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 51: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.903999999999996s)
+  Agent finished in 0.0039999999999995595s CPU, 0.009799413999644457s wall
+  Move: g5 g7
+
+  Board after move 51 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n . p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . x . . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . B . B . . . . .
+   6  B B B B . . . . . B B B
+   5  . . . . . B . t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+14.939999999999994 29.9
+gy.sn.pnstyg
+............
+............
+bbbb.x..bbbb
+............
+....B.B.....
+BBBB.....BBB
+.....B.t....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 52: BLACK (me) (CPU time left: 14.939999999999994s)
+  Agent finished in 0.3279999999999994s CPU, 0.35412906099918473s wall
+  Move: f9 c6
+
+  Board after move 52 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n . p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . B . B . . . . .
+   6  B B x B . . . . . B B B
+   5  . . . . . B . t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.9 14.611999999999995
+gy.sn.pnstyg
+............
+............
+bbbb....bbbb
+............
+....B.B.....
+BBxB.....BBB
+.....B.t....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 53: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.9s)
+  Agent finished in 0.008000000000000895s CPU, 0.009000276999358903s wall
+  Move: g7 g9
+
+  Board after move 53 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n . p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . . B . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . B . . . . . . .
+   6  B B x B . . . . . B B B
+   5  . . . . . B . t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+14.611999999999995 29.891999999999996
+gy.sn.pnstyg
+............
+............
+bbbb..B.bbbb
+............
+....B.......
+BBxB.....BBB
+.....B.t....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 54: BLACK (me) (CPU time left: 14.611999999999995s)
+  Agent finished in 0.3279999999999994s CPU, 0.3484280740012764s wall
+  Move: c6 d6
+
+  Board after move 54 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n . p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . . B . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . B . . . . . . .
+   6  B B . x . . . . . B B B
+   5  . . . . . B . t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.891999999999996 14.283999999999995
+gy.sn.pnstyg
+............
+............
+bbbb..B.bbbb
+............
+....B.......
+BB.x.....BBB
+.....B.t....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 55: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.891999999999996s)
+  Agent finished in 0.008000000000000895s CPU, 0.008945375000621425s wall
+  Move: f5 f7
+
+  Board after move 55 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n . p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . . B . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . B B . . . . . .
+   6  B B . x . . . . . B B B
+   5  . . . . . . . t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+14.283999999999995 29.883999999999993
+gy.sn.pnstyg
+............
+............
+bbbb..B.bbbb
+............
+....BB......
+BB.x.....BBB
+.......t....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 56: BLACK (me) (CPU time left: 14.283999999999995s)
+  Agent finished in 0.31599999999999895s CPU, 0.34153616500043427s wall
+  Move: d6 e7
+
+  Board after move 56 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n . p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . . B . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . x B . . . . . .
+   6  B B . . . . . . . B B B
+   5  . . . . . . . t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.883999999999993 13.967999999999996
+gy.sn.pnstyg
+............
+............
+bbbb..B.bbbb
+............
+....xB......
+BB.......BBB
+.......t....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 57: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.883999999999993s)
+  Agent finished in 0.007999999999999119s CPU, 0.008521078998455778s wall
+  Move: g9 g10
+
+  Board after move 57 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n . p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . B . . . . .
+   9  b b b b . . . . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . x B . . . . . .
+   6  B B . . . . . . . B B B
+   5  . . . . . . . t . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+BLACK
+13.967999999999996 29.875999999999994
+gy.sn.pnstyg
+............
+......B.....
+bbbb....bbbb
+............
+....xB......
+BB.......BBB
+.......t....
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 58: BLACK (me) (CPU time left: 13.967999999999996s)
+  Agent finished in 0.30799999999999983s CPU, 0.3352654110003641s wall
+  Move: h5 f7
+
+  Board after move 58 (BLACK (me)):
+      a b c d e f g h j k m n
+  12  g y . s n . p n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . B . . . . .
+   9  b b b b . . . . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . x t . . . . . .
+   6  B B . . . . . . . B B B
+   5  . . . . . . . . . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+---------- input.txt:
+WHITE
+29.875999999999994 13.659999999999997
+gy.sn.pnstyg
+............
+......B.....
+bbbb....bbbb
+............
+....xt......
+BB.......BBB
+............
+............
+............
+............
+GYTSNXPNSTYG
+---------------------
+
+Move 59: WHITE (compete_minimax_5ya4xpmk) (CPU time left: 29.875999999999994s)
+  Agent finished in 0.004000000000001336s CPU, 0.008193148001737427s wall
+  Move: g10 g12
+
+  Board after move 59 (WHITE (compete_minimax_5ya4xpmk)):
+      a b c d e f g h j k m n
+  12  g y . s n . B n s t y g
+  11  . . . . . . . . . . . .
+  10  . . . . . . . . . . . .
+   9  b b b b . . . . b b b b
+   8  . . . . . . . . . . . .
+   7  . . . . x t . . . . . .
+   6  B B . . . . . . . B B B
+   5  . . . . . . . . . . . .
+   4  . . . . . . . . . . . .
+   3  . . . . . . . . . . . .
+   2  . . . . . . . . . . . .
+   1  G Y T S N X P N S T Y G
+      a b c d e f g h j k m n
+
+============================================================
+
+============================================================
+GAME OVER: WHITE (compete_minimax_5ya4xpmk) wins!
+Reason: BLACK's Prince has been captured
+Final CPU times: WHITE 29.871999999999993s, BLACK 13.659999999999997s
+============================================================
+[compete] Outcome written to outcome_minimax_me.txt
