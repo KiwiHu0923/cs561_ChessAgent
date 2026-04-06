@@ -2,12 +2,15 @@
 #define BOARD_H
 
 #include "Move.h"
+#include "Utils.h"
 #include <utility>
 #include <string>
+#include <cstdint>
 
 class Board {
 private:
     char grid[12][12];  // Fixed-size array for performance
+    uint64_t zobristHash;
 
 public:
     // Constructors
@@ -23,7 +26,17 @@ public:
     }
 
     inline void setPiece(int r, int c, char piece) {
+        if (grid[r][c] != '.') {
+            zobristHash ^= Utils::zobristPiece(r, c, grid[r][c]);
+        }
         grid[r][c] = piece;
+        if (piece != '.') {
+            zobristHash ^= Utils::zobristPiece(r, c, piece);
+        }
+    }
+
+    inline uint64_t getHash() const {
+        return zobristHash;
     }
 
     // Move operations

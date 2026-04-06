@@ -4,6 +4,7 @@
 #include <string>
 #include <utility>
 #include <array>
+#include <cstdint>
 
 namespace Utils {
     // Board constants
@@ -38,6 +39,10 @@ namespace Utils {
     // Coordinate conversion
     std::string idxToCoord(int r, int c);
     std::pair<int, int> coordToIdx(const std::string& coord);
+
+    // Zobrist hashing helpers
+    uint64_t zobristPiece(int r, int c, char piece);
+    uint64_t zobristSideToMove();
 }
 
 #endif // UTILS_H

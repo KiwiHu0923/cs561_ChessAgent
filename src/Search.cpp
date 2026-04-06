@@ -1,14 +1,25 @@
 #include "Search.h"
 #include "MoveGenerator.h"
 #include "Evaluator.h"
+#include "Utils.h"
 #include <ctime>
 #include <cmath>
 #include <algorithm>
 #include <stdexcept>
 #include <limits>
+#include <fstream>
+#include <cctype>
+#include <cerrno>
+#include <sys/stat.h>
 
 Search::Search(const GameState& state)
-    : state(state), startTime(0), timeLimit(0), timeout(false) {}
+    : state(state),
+      startTime(0),
+      timeLimit(0),
+      timeout(false),
+      repetitionHistoryPath("work/repetition_history.txt") {
+    loadRepetitionHistory();
+}
 
 double Search::getCPUTime() const {
     return static_cast<double>(clock()) / CLOCKS_PER_SEC;
@@ -57,35 +68,107 @@ double Search::calculateTimeLimit(int piecesCount, double myTime) {
     return limit;
 }
 
-double Search::moveScore(const Board& board, const Move& move, bool isWhite) {
+uint64_t Search::positionKey(const Board& board, bool whiteToMove) const {
+    return board.getHash() ^ (whiteToMove ? Utils::zobristSideToMove() : 0ULL);
+}
+
+void Search::loadRepetitionHistory() {
+    std::ifstream file(repetitionHistoryPath);
+    if (!file.is_open()) {
+        return;
+    }
+
+    std::string tag;
+    double savedMyTime = -1.0;
+    double savedOppTime = -1.0;
+    if (!(file >> tag >> savedMyTime >> savedOppTime) || tag != "META") {
+        return;
+    }
+
+    // Both clocks should decrease during a game. If they jump upward, treat it as a new game.
+    if (state.getMyTime() > savedMyTime + 0.25 || state.getOppTime() > savedOppTime + 0.25) {
+        return;
+    }
+
+    uint64_t hash = 0;
+    int count = 0;
+    while (file >> hash >> count) {
+        historicalResultCounts[hash] = count;
+    }
+}
+
+void Search::saveRepetitionHistory(uint64_t resultKey) {
+    historicalResultCounts[resultKey]++;
+
+    std::vector<std::pair<uint64_t, int>> entries;
+    entries.reserve(historicalResultCounts.size());
+    for (const auto& entry : historicalResultCounts) {
+        entries.push_back(entry);
+    }
+
+    std::sort(entries.begin(), entries.end(),
+              [](const auto& a, const auto& b) { return a.second > b.second; });
+
+    if (entries.size() > 24) {
+        entries.resize(24);
+    }
+
+    if (mkdir("work", 0755) != 0 && errno != EEXIST) {
+        return;
+    }
+
+    std::ofstream file(repetitionHistoryPath, std::ios::trunc);
+    if (!file.is_open()) {
+        return;
+    }
+
+    file << "META " << state.getMyTime() << " " << state.getOppTime() << "\n";
+    for (const auto& [hash, count] : entries) {
+        file << hash << " " << count << "\n";
+    }
+}
+
+double Search::moveScore(Board& board, const Move& move, bool isWhite, const Move& preferredMove) {
     double score = 0;
 
     char captured = board.getPiece(move.dr, move.dc);
+    int attackerValue = Evaluator::PIECE_VALUES[static_cast<int>(toupper(board.getPiece(move.sr, move.sc)))];
+    bool wasThreatened = Evaluator::isPrinceUnderThreat(board, isWhite);
 
     // 1. Prince capture (game-ending)
     if (toupper(captured) == 'P') {
         return 1000000;
     }
 
+    if (move == preferredMove) {
+        score += 250000;
+    }
+
     // 2. Checking moves (threatens enemy prince)
-    Board newBoard = board;
-    newBoard.applyMove(move);
-    if (Evaluator::isPrinceUnderThreat(newBoard, !isWhite)) {
+    char undoneCapture;
+    board.makeMove(move, undoneCapture);
+    if (Evaluator::isPrinceUnderThreat(board, !isWhite)) {
         score += 100000;
     }
 
     // 3. Defensive moves (our prince is threatened)
-    if (Evaluator::isPrinceUnderThreat(board, isWhite)) {
-        // Test if this move stops the threat
-        if (!Evaluator::isPrinceUnderThreat(newBoard, isWhite)) {
-            score += 50000;
-        }
+    if (wasThreatened && !Evaluator::isPrinceUnderThreat(board, isWhite)) {
+        score += 50000;
+    }
+
+    uint64_t nextKey = positionKey(board, !isWhite);
+    auto historyIt = historicalResultCounts.find(nextKey);
+    if (historyIt != historicalResultCounts.end()) {
+        score -= 1500.0 * historyIt->second;
+    }
+
+    if (currentLineCounts.find(nextKey) != currentLineCounts.end()) {
+        score -= 2000.0;
     }
 
     // 4. MVV-LVA captures
     if (captured != '.') {
         int victimValue = Evaluator::PIECE_VALUES[static_cast<int>(toupper(captured))];
-        int attackerValue = Evaluator::PIECE_VALUES[static_cast<int>(toupper(board.getPiece(move.sr, move.sc)))];
         score += victimValue * 10 - attackerValue;
     }
 
@@ -94,15 +177,17 @@ double Search::moveScore(const Board& board, const Move& move, bool isWhite) {
         score += 20;
     }
 
+    board.unmakeMove(move, undoneCapture);
     return score;
 }
 
-std::vector<Move> Search::orderMoves(const Board& board, const std::vector<Move>& moves, bool isWhite) {
+std::vector<Move> Search::orderMoves(Board& board, const std::vector<Move>& moves, bool isWhite,
+                                     const Move& preferredMove) {
     std::vector<std::pair<double, Move>> scoredMoves;
     scoredMoves.reserve(moves.size());
 
     for (const Move& move : moves) {
-        double score = moveScore(board, move, isWhite);
+        double score = moveScore(board, move, isWhite, preferredMove);
         scoredMoves.emplace_back(score, move);
     }
 
@@ -127,24 +212,70 @@ std::pair<double, Move> Search::minimax(Board& board, int depth, double alpha, d
         return {0, Move()};
     }
 
+    bool currentPlayerIsWhite = (maximizing == isWhite);
+    uint64_t key = positionKey(board, currentPlayerIsWhite);
+
+    int& seenCount = currentLineCounts[key];
+    seenCount++;
+    struct RepetitionGuard {
+        std::unordered_map<uint64_t, int>& counts;
+        uint64_t key;
+        ~RepetitionGuard() {
+            auto it = counts.find(key);
+            if (it == counts.end()) {
+                return;
+            }
+            if (--it->second == 0) {
+                counts.erase(it);
+            }
+        }
+    } guard{currentLineCounts, key};
+
+    if (seenCount >= 2) {
+        return {0.0, Move()};
+    }
+
     // Terminal or depth limit reached
     if (depth == 0 || board.isTerminal()) {
         return {Evaluator::evaluate(board, isWhite), Move()};
     }
 
-    // Generate moves for the current player at this node
-    // When maximizing=true, we're at a max node (root player's turn)
-    // When maximizing=false, we're at a min node (opponent's turn)
-    bool currentPlayerIsWhite = (maximizing == isWhite);
+    double originalAlpha = alpha;
+    double originalBeta = beta;
+
+    auto ttIt = transpositionTable.find(key);
+    Move preferredMove;
+    if (ttIt != transpositionTable.end()) {
+        const TTEntry& entry = ttIt->second;
+        preferredMove = entry.bestMove;
+
+        if (entry.depth >= depth) {
+            if (entry.flag == TT_EXACT) {
+                return {entry.score, entry.bestMove};
+            }
+            if (entry.flag == TT_LOWER) {
+                alpha = std::max(alpha, entry.score);
+            } else if (entry.flag == TT_UPPER) {
+                beta = std::min(beta, entry.score);
+            }
+
+            if (alpha >= beta) {
+                return {entry.score, entry.bestMove};
+            }
+        }
+    }
+
     std::vector<Move> moves = MoveGenerator::generateMoves(board, currentPlayerIsWhite);
 
     if (moves.empty()) {
         // No legal moves - treat as loss
-        return {maximizing ? -1000000.0 : 1000000.0, Move()};
+        double terminalScore = maximizing ? -1000000.0 : 1000000.0;
+        transpositionTable[key] = {terminalScore, depth, TT_EXACT, Move()};
+        return {terminalScore, Move()};
     }
 
     // Order moves for better pruning
-    moves = orderMoves(board, moves, currentPlayerIsWhite);
+    moves = orderMoves(board, moves, currentPlayerIsWhite, preferredMove);
 
     Move bestMove = moves[0];
 
@@ -170,6 +301,13 @@ std::pair<double, Move> Search::minimax(Board& board, int depth, double alpha, d
             }
         }
 
+        uint8_t flag = TT_EXACT;
+        if (maxEval <= originalAlpha) {
+            flag = TT_UPPER;
+        } else if (maxEval >= originalBeta) {
+            flag = TT_LOWER;
+        }
+        transpositionTable[key] = {maxEval, depth, flag, bestMove};
         return {maxEval, bestMove};
     } else {
         double minEval = std::numeric_limits<double>::infinity();
@@ -193,35 +331,51 @@ std::pair<double, Move> Search::minimax(Board& board, int depth, double alpha, d
             }
         }
 
+        uint8_t flag = TT_EXACT;
+        if (minEval <= originalAlpha) {
+            flag = TT_UPPER;
+        } else if (minEval >= originalBeta) {
+            flag = TT_LOWER;
+        }
+        transpositionTable[key] = {minEval, depth, flag, bestMove};
         return {minEval, bestMove};
     }
 }
 
 Move Search::selectBestMove() {
     // Generate moves
-    std::vector<Move> moves = MoveGenerator::generateMoves(state.getBoard(), state.isWhiteToMove());
+    Board board = state.getBoard();
+    std::vector<Move> moves = MoveGenerator::generateMoves(board, state.isWhiteToMove());
 
     if (moves.empty()) {
         throw std::runtime_error("No legal moves available");
     }
 
     if (moves.size() == 1) {
+        char captured;
+        board.makeMove(moves[0], captured);
+        saveRepetitionHistory(positionKey(board, !state.isWhiteToMove()));
         return moves[0];
     }
 
     // Emergency: if very low time, just return first ordered move
     if (state.getMyTime() < 0.1) {
-        moves = orderMoves(state.getBoard(), moves, state.isWhiteToMove());
+        moves = orderMoves(board, moves, state.isWhiteToMove());
+        char captured;
+        board.makeMove(moves[0], captured);
+        saveRepetitionHistory(positionKey(board, !state.isWhiteToMove()));
         return moves[0];
     }
 
     // Calculate time limit
-    int piecesCount = state.getBoard().countPieces();
+    int piecesCount = board.countPieces();
     timeLimit = calculateTimeLimit(piecesCount, state.getMyTime());
 
     // Iterative deepening
     startTime = getCPUTime();
     timeout = false;
+    transpositionTable.clear();
+    currentLineCounts.clear();
     Move bestMove = moves[0];
     double prevDepthTime = 0;
     double depthBeforePrev = 0;
@@ -251,7 +405,7 @@ Move Search::selectBestMove() {
         }
 
         // Search at current depth
-        Board boardCopy = state.getBoard();
+        Board boardCopy = board;
         auto [_, move] = minimax(boardCopy, depth,
                                  -std::numeric_limits<double>::infinity(),
                                  std::numeric_limits<double>::infinity(),
@@ -270,6 +424,10 @@ Move Search::selectBestMove() {
         depthBeforePrev = prevDepthTime;
         prevDepthTime = currentDepthTime;
     }
+
+    char captured;
+    board.makeMove(bestMove, captured);
+    saveRepetitionHistory(positionKey(board, !state.isWhiteToMove()));
 
     return bestMove;
 }

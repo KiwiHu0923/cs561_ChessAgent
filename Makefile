@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -O3 -Wall -Wextra -march=native -flto
+CXXFLAGS = -std=c++17 -O3 -Wall -Wextra
 TARGET = homework
 
 SRCS = src/main.cpp src/GameState.cpp src/Board.cpp src/Move.cpp \
