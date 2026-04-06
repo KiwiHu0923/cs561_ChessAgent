@@ -131,11 +131,8 @@ void Search::saveRepetitionHistory(uint64_t resultKey) {
 double Search::moveScore(Board& board, const Move& move, bool isWhite, const Move& preferredMove) {
     double score = 0;
 
-    char movingPiece = board.getPiece(move.sr, move.sc);
     char captured = board.getPiece(move.dr, move.dc);
-    int attackerValue = Evaluator::PIECE_VALUES[static_cast<int>(toupper(movingPiece))];
-
-    // Check if our prince was under threat before the move
+    int attackerValue = Evaluator::PIECE_VALUES[static_cast<int>(toupper(board.getPiece(move.sr, move.sc)))];
     bool wasThreatened = Evaluator::isPrinceUnderThreat(board, isWhite);
 
     // 1. Prince capture (game-ending)
@@ -145,14 +142,6 @@ double Search::moveScore(Board& board, const Move& move, bool isWhite, const Mov
 
     if (move == preferredMove) {
         score += 250000;
-    }
-
-    char enemyPrince = isWhite ? 'p' : 'P';
-    auto [oldPr, oldPc] = board.findPiece(enemyPrince);
-
-    int oldDist = 100;
-    if (oldPr != -1) {
-        oldDist = std::abs(oldPr - move.sr) + std::abs(oldPc - move.sc);
     }
 
     // 2. Checking moves (threatens enemy prince)
@@ -167,20 +156,6 @@ double Search::moveScore(Board& board, const Move& move, bool isWhite, const Mov
         score += 50000;
     }
 
-    // 4. Distance-based pressure improvement
-    auto [newPr, newPc] = board.findPiece(enemyPrince);
-    if (newPr != -1) {
-        int newDist = std::abs(newPr - move.dr) + std::abs(newPc - move.dc);
-        if (newDist < oldDist) {
-            score += (oldDist - newDist) * 25;
-        }
-    }
-
-    // 5. Escape square reduction for enemy prince
-    int escapeSquares = Evaluator::countEnemyPrinceEscapeSquares(board, !isWhite);
-    score += (8 - escapeSquares) * 200;
-
-    // 6. Repetition avoidance
     uint64_t nextKey = positionKey(board, !isWhite);
     auto historyIt = historicalResultCounts.find(nextKey);
     if (historyIt != historicalResultCounts.end()) {
@@ -191,13 +166,13 @@ double Search::moveScore(Board& board, const Move& move, bool isWhite, const Mov
         score -= 2000.0;
     }
 
-    // 7. MVV-LVA captures
+    // 4. MVV-LVA captures
     if (captured != '.') {
         int victimValue = Evaluator::PIECE_VALUES[static_cast<int>(toupper(captured))];
         score += victimValue * 10 - attackerValue;
     }
 
-    // 8. Center control
+    // 5. Center control
     if (move.dr >= 4 && move.dr <= 7 && move.dc >= 4 && move.dc <= 7) {
         score += 20;
     }
