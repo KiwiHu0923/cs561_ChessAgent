@@ -3,7 +3,7 @@
 #include "Utils.h"
 #include <cmath>
 
-// Initialize piece values using array indexing by ASCII value
+// Initialize piece values
 const std::array<int, 128> Evaluator::PIECE_VALUES = [] {
     std::array<int, 128> v{};
     v['B'] = 100;  v['b'] = 100;
@@ -18,19 +18,16 @@ const std::array<int, 128> Evaluator::PIECE_VALUES = [] {
 }();
 
 double Evaluator::evaluate(const Board& board, bool isWhite) {
-    // Check terminal state
     if (board.isTerminal()) {
         auto [wr, wc] = board.findPiece('P');
         auto [br, bc] = board.findPiece('p');
 
         if (wr != -1 && br == -1) {
-            // White won
             return isWhite ? 1000000 : -1000000;
         } else if (br != -1 && wr == -1) {
-            // Black won
             return isWhite ? -1000000 : 1000000;
         }
-        return 0;  // Draw (shouldn't happen)
+        return 0; 
     }
 
     double score = 0;
@@ -42,6 +39,7 @@ double Evaluator::evaluate(const Board& board, bool isWhite) {
 
     // Prince safety evaluation
     score += evaluatePrinceSafety(board, isWhite);
+    score += evaluatePrincePressure(board, isWhite);
 
     // Material and positional evaluation
     score += evaluateMaterial(board, isWhite);
@@ -115,6 +113,115 @@ double Evaluator::evaluatePrinceSafety(const Board& board, bool isWhite) {
     return score;
 }
 
+int Evaluator::pressurePieceWeight(char piece) {
+    switch (toupper(piece)) {
+        case 'X': return 16; // Princess
+        case 'S': return 14; // Scout
+        case 'Y': return 10; // Pony
+        case 'N': return 10; // Sibling
+        case 'G': return 9;  // Guard
+        case 'T': return 9;  // Tutor
+        case 'B': return 3;  // Baby
+        case 'P': return 0;  // Prince itself not counted as attacker pressure
+        default: return 0;
+    }
+}
+
+int Evaluator::countAttackersNearEnemyPrince(const Board& board, bool attackerIsWhite, int oppoPrinceR, int oppoPrinceC) {
+    int count = 0;
+
+    for (int r = 0; r < 12; r++) {
+        for (int c = 0; c < 12; c++) {
+            char piece = board.getPiece(r, c);
+            if (piece == '.' || !Utils::isFriendly(piece, !attackerIsWhite)) continue;
+
+            int dist = std::abs(r - oppoPrinceR) + std::abs(c - oppoPrinceC);
+
+            if (dist <= 2) 
+                count ++;
+        }
+    }
+
+    return count;
+}
+
+// Count how many escape squares the enemy prince has (not occupied by friendly pieces and not attacked)
+int Evaluator::countEnemyPrinceEscapeSquares(const Board& board, bool princeIsWhite) {
+    char prince = princeIsWhite ? 'P' : 'p';
+    auto [pr, pc] = board.findPiece(prince);
+    if (pr == -1) return 0;  // Prince not found
+
+    bool attacker = !princeIsWhite;
+    std::vector<Move> attackerMoves = MoveGenerator::generateMoves(board, attacker);
+
+    bool attacked[12][12] = {};
+    for (const Move& move : attackerMoves) {
+        attacked[move.dr][move.dc] = true;
+    }
+
+    int escapeSquares = 0;
+    for (int dr = -1; dr <= 1; dr++) {
+        for (int dc = -1; dc <= 1; dc++) {
+            if (dr == 0 && dc == 0) continue;
+
+            int nr = pr + dr, nc = pc + dc;
+            if (!Utils::inBound(nr, nc)) continue;
+
+            char dest = board.getPiece(nr, nc);
+            if (dest == '.' || Utils::isFriendly(dest, princeIsWhite)) continue;
+            if (attacked[nr][nc]) continue;
+        }
+        escapeSquares++;
+    }
+
+    return escapeSquares;
+}
+
+// Evaluate pressure on the enemy prince based on proximity of friendly pieces, distance-based pressure, and escape square reduction
+double Evaluator::evaluatePrincePressure(const Board&board, bool isWhite) {
+    double score = 0;
+    char enemyPrince = isWhite ? 'p' : 'P';
+    auto [epr, epc] = board.findPiece(enemyPrince);
+    if (epr == -1) return 0;  // enemy prince not found
+
+    // 1. Immediate direct threat bonus (+6000)
+    if (isPrinceUnderThreat(board, !isWhite)) {
+        score += 6000;
+    }
+
+    // 2. Friendly attackers near enemy prince
+    int nearbyAttackers = countAttackersNearEnemyPrince(board, isWhite, epr, epc);
+    score += nearbyAttackers * 40;
+
+    // 3. Distance-based pressure from attacking pieces
+    for (int r = 0; r < 12; r++) {
+        for (int c = 0; c < 12; c++) {
+            char piece = board.getPiece(r, c);
+            if (piece == '.' || !Utils::isFriendly(piece, isWhite)) continue;
+
+            int weight = pressurePieceWeight(piece);
+            if (weight == 0) continue;
+
+            int dist = std::abs(r - epr) + std::abs(c - epc);
+            if (dist <= 4) {
+                score += (5 - dist) * weight;
+            }
+        }
+    }
+
+
+    // Fewer escape squares for Enemy Prince means higher pressure
+    int escapeSquares = countEnemyPrinceEscapeSquares(board, !isWhite);
+    score += (8 - escapeSquares) * 120;
+
+    if (escapeSquares <= 2) {
+        score += 250;  
+    }
+
+    return score;
+}
+
+// Material evaluation based on piece values
 double Evaluator::evaluateMaterial(const Board& board, bool isWhite) {
     double score = 0;
 
@@ -137,6 +244,9 @@ double Evaluator::evaluateMaterial(const Board& board, bool isWhite) {
     return score;
 }
 
+// Positional evaluation based on piece placement and strategic factors
+// - Center control: Pieces in the 4x4 center get a bonus
+// - Baby advancement: Babies get a bonus for advancing toward the enemy side
 double Evaluator::evaluatePosition(const Board& board, bool isWhite) {
     double score = 0;
 
