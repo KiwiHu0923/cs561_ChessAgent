@@ -42,10 +42,120 @@ double Evaluator::evaluate(const Board& board, bool isWhite) {
 
     // Prince safety evaluation
     score += evaluatePrinceSafety(board, isWhite);
+    score += evaluatePrincePressure(board, isWhite);
 
     // Material and positional evaluation
     score += evaluateMaterial(board, isWhite);
     score += evaluatePosition(board, isWhite);
+
+    return score;
+}
+
+int Evaluator::pressurePieceWeight(char piece) {
+    switch (toupper(piece)) {
+        case 'X': return 14;
+        case 'S': return 13;
+        case 'Y': return 9;
+        case 'N': return 9;
+        case 'G': return 8;
+        case 'T': return 8;
+        case 'B': return 2;
+        case 'P': return 0;
+        default: return 0;
+    }
+}
+
+int Evaluator::countAttackersNearEnemyPrince(const Board& board, bool attackerIsWhite, int oppPrinceR, int oppPrinceC) {
+    int count = 0;
+
+    for (int r = 0; r < 12; r++) {
+        for (int c = 0; c < 12; c++) {
+            char piece = board.getPiece(r, c);
+            if (piece == '.' || !Utils::isFriendly(piece, attackerIsWhite)) {
+                continue;
+            }
+
+            int dist = std::abs(r - oppPrinceR) + std::abs(c - oppPrinceC);
+            if (dist <= 2) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+int Evaluator::countEnemyPrinceEscapeSquares(const Board& board, bool princeIsWhite) {
+    char prince = princeIsWhite ? 'P' : 'p';
+    auto [pr, pc] = board.findPiece(prince);
+    if (pr == -1) return 0;
+
+    bool attackerIsWhite = !princeIsWhite;
+    std::vector<Move> attackerMoves = MoveGenerator::generateMoves(board, attackerIsWhite);
+
+    bool attacked[12][12] = {};
+    for (const Move& move : attackerMoves) {
+        attacked[move.dr][move.dc] = true;
+    }
+
+    int escapeSquares = 0;
+    for (int dr = -1; dr <= 1; dr++) {
+        for (int dc = -1; dc <= 1; dc++) {
+            if (dr == 0 && dc == 0) continue;
+
+            int nr = pr + dr;
+            int nc = pc + dc;
+            if (!Utils::inBound(nr, nc)) continue;
+
+            char dest = board.getPiece(nr, nc);
+            if (Utils::isFriendly(dest, princeIsWhite)) continue;
+            if (attacked[nr][nc]) continue;
+
+            escapeSquares++;
+        }
+    }
+
+    return escapeSquares;
+}
+
+double Evaluator::evaluatePrincePressure(const Board& board, bool isWhite) {
+    double score = 0;
+    char enemyPrince = isWhite ? 'p' : 'P';
+    auto [epr, epc] = board.findPiece(enemyPrince);
+    if (epr == -1) return 0;
+
+    if (isPrinceUnderThreat(board, !isWhite)) {
+        score += 6500;
+    }
+
+    int nearbyAttackers = countAttackersNearEnemyPrince(board, isWhite, epr, epc);
+    score += nearbyAttackers * 70;
+
+    for (int r = 0; r < 12; r++) {
+        for (int c = 0; c < 12; c++) {
+            char piece = board.getPiece(r, c);
+            if (piece == '.' || !Utils::isFriendly(piece, isWhite)) continue;
+
+            int weight = pressurePieceWeight(piece);
+            if (weight == 0) continue;
+
+            int dist = std::abs(r - epr) + std::abs(c - epc);
+            if (dist <= 4) {
+                score += (5 - dist) * weight;
+            }
+        }
+    }
+
+    int escapeSquares = countEnemyPrinceEscapeSquares(board, !isWhite);
+    score += (8 - escapeSquares) * 220;
+
+    if (escapeSquares <= 2) {
+        score += 500;
+    }
+
+    if (escapeSquares == 1) {
+        score += 400;
+    }
 
     return score;
 }

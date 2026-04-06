@@ -131,8 +131,9 @@ void Search::saveRepetitionHistory(uint64_t resultKey) {
 double Search::moveScore(Board& board, const Move& move, bool isWhite, const Move& preferredMove) {
     double score = 0;
 
+    char movingPiece = board.getPiece(move.sr, move.sc);
     char captured = board.getPiece(move.dr, move.dc);
-    int attackerValue = Evaluator::PIECE_VALUES[static_cast<int>(toupper(board.getPiece(move.sr, move.sc)))];
+    int attackerValue = Evaluator::PIECE_VALUES[static_cast<int>(toupper(movingPiece))];
     bool wasThreatened = Evaluator::isPrinceUnderThreat(board, isWhite);
 
     // 1. Prince capture (game-ending)
@@ -142,6 +143,13 @@ double Search::moveScore(Board& board, const Move& move, bool isWhite, const Mov
 
     if (move == preferredMove) {
         score += 250000;
+    }
+
+    char enemyPrince = isWhite ? 'p' : 'P';
+    auto [oldPr, oldPc] = board.findPiece(enemyPrince);
+    int oldDist = 100;
+    if (oldPr != -1) {
+        oldDist = std::abs(oldPr - move.sr) + std::abs(oldPc - move.sc);
     }
 
     // 2. Checking moves (threatens enemy prince)
@@ -155,6 +163,17 @@ double Search::moveScore(Board& board, const Move& move, bool isWhite, const Mov
     if (wasThreatened && !Evaluator::isPrinceUnderThreat(board, isWhite)) {
         score += 50000;
     }
+
+    auto [newPr, newPc] = board.findPiece(enemyPrince);
+    if (newPr != -1) {
+        int newDist = std::abs(newPr - move.dr) + std::abs(newPc - move.dc);
+        if (newDist < oldDist) {
+            score += (oldDist - newDist) * 25;
+        }
+    }
+
+    int escapeSquares = Evaluator::countEnemyPrinceEscapeSquares(board, !isWhite);
+    score += (8 - escapeSquares) * 360;
 
     uint64_t nextKey = positionKey(board, !isWhite);
     auto historyIt = historicalResultCounts.find(nextKey);
